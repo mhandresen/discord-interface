@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { Button } from '@intility/bifrost-react';
+import '@intility/bifrost-react/dist/bifrost-app.css';
 
 const Home: NextPage = () => {
 	const { data: session } = useSession();
@@ -10,7 +12,7 @@ const Home: NextPage = () => {
 		return (
 			<>
 				Not Signed in <br />
-				<button onClick={() => signIn('discord')}>Sign in</button>
+				<Button onClick={() => signIn('discord')}>Sign in</Button>
 			</>
 		);
 	}

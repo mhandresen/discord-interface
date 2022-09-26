@@ -4,6 +4,21 @@ import DiscordProvider from 'next-auth/providers/discord';
 const scope = 'identify guilds';
 
 export default NextAuth({
+	callbacks: {
+		async jwt({ token, account }) {
+			if (account) {
+				token.accessToken = account.access_token;
+				token.expries = Date.now() + account.expires_at! * 1000;
+				token.id = account.id;
+			}
+			return token;
+		},
+		async session({ session, token }) {
+			if (token) {
+			}
+			return session;
+		},
+	},
 	providers: [
 		DiscordProvider({
 			clientId: process.env.DISCORD_CLIENT_ID!,
