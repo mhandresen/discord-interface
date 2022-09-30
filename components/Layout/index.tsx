@@ -1,7 +1,22 @@
-import { Button } from '@intility/bifrost-react';
-import { signIn, useSession } from 'next-auth/react';
+import { Button, Icon, Nav, Tooltip } from '@intility/bifrost-react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { ReactNode } from 'react';
 import Image from 'next/image';
+import { faSignOut, faUser } from '@fortawesome/pro-regular-svg-icons';
+import Link from 'next/link';
+import cx from 'classnames';
+import { Router, useRouter } from 'next/router';
+
+const LINKS = [
+	{
+		name: 'Dashboard',
+		path: '/',
+	},
+	{
+		name: 'Servers',
+		path: '/servers',
+	},
+];
 
 function LoginView() {
 	return (
@@ -64,11 +79,44 @@ function LoginView() {
 type Props = {
 	children: ReactNode;
 };
-export default function ({ children }: Props) {
-	const { data: session } = useSession();
-	if (!session) {
-		return <LoginView />;
-	}
+export default function Layout({ children }: Props) {
+	const { data: session, status } = useSession();
+	if (status === 'loading') return null;
+	if (!session) return <LoginView />;
 
-	return <main>{children}</main>;
+	const router = useRouter();
+
+	return (
+		<div>
+			<Nav
+				appName="Chateau Interface"
+				top={
+					<>
+						{LINKS.map((link) => (
+							<Link key={link.path} href={link.path}>
+								<a className={cx(link.path === router.pathname && 'active')}>
+									<Nav.Item>{link.name}</Nav.Item>
+								</a>
+							</Link>
+						))}
+						<a href="/user" title="User profile">
+							<Nav.Item>
+								<Image
+									className="rounded-full"
+									src={session.user!.image!.toString()}
+									width={28}
+									height={28}
+								/>
+							</Nav.Item>
+						</a>
+						<a>
+							<Nav.Item icon={faSignOut} onClick={() => signOut()} />
+						</a>
+					</>
+				}
+			>
+				<main>{children}</main>
+			</Nav>
+		</div>
+	);
 }

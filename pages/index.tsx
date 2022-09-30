@@ -17,18 +17,16 @@ const Home: NextPage = () => {
 		);
 	}
 	return (
-		<div className={styles.container}>
-			<main className={styles.main}>
-				Signed in: <br />
-				{session.user?.name} <br />
-				<Image
-					src={session.user!.image!.toString()}
-					alt=""
-					height={128}
-					width={128}
-				/>
-				<button onClick={() => signOut()}>Sign out</button>
-			</main>
+		<div>
+			Signed in: <br />
+			{session.user?.name} <br />
+			<Image
+				src={session.user!.image!.toString()}
+				alt=""
+				height={128}
+				width={128}
+			/>
+			<button onClick={() => signOut()}>Sign out</button>
 		</div>
 	);
 };
