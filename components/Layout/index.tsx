@@ -1,11 +1,11 @@
 import { faSignOut } from '@fortawesome/pro-regular-svg-icons';
-import { Button, Nav } from '@intility/bifrost-react';
 import cx from 'classnames';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
+import NavBar from '../NavBar';
 type Props = {
 	children: ReactNode;
 };
@@ -60,8 +60,7 @@ function LoginView() {
 							directly through a web interface
 						</p>
 						<span className="font-semibold">Sign in</span>
-						<Button
-							variant="filled"
+						<button
 							className="flex w-max items-center justify-center mt-4"
 							onClick={() => signIn('discord')}
 						>
@@ -72,7 +71,7 @@ function LoginView() {
 								className="mr-8"
 							/>
 							<span className="ml-2">Discord</span>
-						</Button>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -87,7 +86,8 @@ export default function Layout({ children }: Props) {
 
 	return (
 		<div>
-			<Nav
+			<NavBar children={children} links={LINKS} />
+			{/* <Nav
 				appName="Chateau Interface"
 				top={
 					<>
@@ -114,8 +114,8 @@ export default function Layout({ children }: Props) {
 					</>
 				}
 			>
-				<main>{children}</main>
-			</Nav>
+				<main className="max-w-6xl mx-auto px-3 py-3 md:py-20">{children}</main>
+			</Nav> */}
 		</div>
 	);
 }
