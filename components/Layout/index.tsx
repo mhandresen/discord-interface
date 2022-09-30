@@ -1,11 +1,14 @@
-import { Button, Icon, Nav, Tooltip } from '@intility/bifrost-react';
-import { signIn, signOut, useSession } from 'next-auth/react';
-import { ReactNode } from 'react';
-import Image from 'next/image';
-import { faSignOut, faUser } from '@fortawesome/pro-regular-svg-icons';
-import Link from 'next/link';
+import { faSignOut } from '@fortawesome/pro-regular-svg-icons';
+import { Button, Nav } from '@intility/bifrost-react';
 import cx from 'classnames';
-import { Router, useRouter } from 'next/router';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
+type Props = {
+	children: ReactNode;
+};
 
 const LINKS = [
 	{
@@ -76,15 +79,11 @@ function LoginView() {
 		</div>
 	);
 }
-type Props = {
-	children: ReactNode;
-};
 export default function Layout({ children }: Props) {
 	const { data: session, status } = useSession();
+	const router = useRouter();
 	if (status === 'loading') return null;
 	if (!session) return <LoginView />;
-
-	const router = useRouter();
 
 	return (
 		<div>
