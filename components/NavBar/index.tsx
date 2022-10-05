@@ -46,7 +46,7 @@ export default function NavBar({ children, links }: Props) {
 		// 	<main className="max-w-6xl mx-auto px-3 py-3 md:py-20">{children}</main>
 		// </nav>
 		<>
-			<nav className="flex pl-4 border-b border-gray-700 md:shadow-lg items-center relative">
+			<nav className="flex pl-4 border-b border-gray-700 md:shadow-lg items-center fixed w-full top-0 z-10 bg-gray-800">
 				<div className="text-lg font-bold md:py-0 p-4 text-white">Logo</div>
 				<div className="text-lg border-l border-gray-700 font-bold md:py-0 p-4 text-gray-500">
 					Chateau interface
@@ -56,8 +56,8 @@ export default function NavBar({ children, links }: Props) {
 						return (
 							<li
 								className={cx(
-									'text-gray-500 hover:text-gray-600 border-l border-gray-700',
-									router.pathname == link.path && 'underline'
+									' hover:text-gray-600 border-l border-gray-700 font-bold',
+									router.pathname == link.path ? 'text-white ' : 'text-gray-500'
 								)}
 							>
 								<a

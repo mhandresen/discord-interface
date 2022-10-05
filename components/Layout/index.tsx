@@ -1,4 +1,3 @@
-import { faSignOut } from '@fortawesome/pro-regular-svg-icons';
 import cx from 'classnames';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
