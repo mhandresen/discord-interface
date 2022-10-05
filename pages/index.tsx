@@ -1,7 +1,6 @@
 import { signOut } from 'next-auth/react';
-import Button from '../components/Button';
-import ServerGrid from '../components/ServerGrid';
-import ServerTab from '../components/ServerTab';
+import Button from '../Components/Button';
+import ServerGrid from '../Components/ServerGrid';
 import { useGetUserGuilds } from '../hooks/use-get-users-discord-guilds';
 import { Server } from '../interface/server';
 

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import  React, { ReactNode } from 'react';
 import cx from 'classnames';
 interface Props {
 	filled?: boolean;
@@ -16,7 +16,6 @@ export default function Button({
 	width,
 	className,
 }: Props) {
-	console.log(height);
 	//border border-gray-700 hover:border-gray-500
 	//bg-gray-700 hover:bg-gray-600 bg-gray-700 hover:bg-opacity-50
 	if (filled)
