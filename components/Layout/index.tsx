@@ -38,6 +38,7 @@ function LoginView() {
 			<div className="flex m-20 rounded-2xl overflow-hidden">
 				<div className="relative w-[350px] hidden sm:block bg-bfc-base-3">
 					<Image
+					alt=''
 						src="/img/discord.jpg"
 						layout="fill"
 						objectFit="cover"
@@ -47,6 +48,7 @@ function LoginView() {
 				<div className="bg-zinc-800 py-6 flex flex-col min-h-[340px] w-[350px]">
 					<div className="self-end px-4">
 						<Image
+						alt=''
 							src={`/img/discord-logo.png`}
 							layout="intrinsic"
 							height={25}
@@ -68,6 +70,7 @@ function LoginView() {
 							onClick={() => signIn('discord')}
 						>
 							<Image
+							alt=''
 								src="/img/discord-logo.png"
 								height={12}
 								width={12}
@@ -90,36 +93,7 @@ export default function Layout({ children }: Props) {
 	return (
 		<div className="bg-gray-800 overflow-x-hidden">
 			<NavBar children={children} links={LINKS} />
-			{/* <Nav
-				appName="Chateau Interface"
-				top={
-					<>
-						{LINKS.map((link) => (
-							<Link key={link.path} href={link.path}>
-								<a className={cx(link.path === router.pathname && 'active')}>
-									<Nav.Item>{link.name}</Nav.Item>
-								</a>
-							</Link>
-						))}
-						<a href="/user" title="User profile">
-							<Nav.Item>
-								<Image
-									className="rounded-full"
-									src={session.user!.image!.toString()}
-									width={28}
-									height={28}
-								/>
-							</Nav.Item>
-						</a>
-						<a>
-							<Nav.Item icon={faSignOut} onClick={() => signOut()} />
-						</a>
-					</>
-				}
-			> */}
-			{/* <main className="max-w-6xl mx-auto px-3 py-3 md:py-20 ">{children}</main> */}
 			<main>{children}</main>
-			{/* </Nav> */}
 		</div>
 	);
 }
