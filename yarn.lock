@@ -32,46 +32,6 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fortawesome/fontawesome-common-types@6.2.0":
-  version "6.2.0"
-  resolved "https://artifactory.int.intility.no:443/artifactory/api/npm/npm/@fortawesome/fontawesome-common-types/-/6.2.0/fontawesome-common-types-6.2.0.tgz#76467a94aa888aeb22aafa43eb6ff889df3a5a7f"
-  integrity sha512-rBevIsj2nclStJ7AxTdfsa3ovHb1H+qApwrxcTVo+NNdeJiB9V75hsKfrkG5AwNcRUNxrPPiScGYCNmLMoh8pg==
-
-"@fortawesome/pro-duotone-svg-icons@^6.2.0":
-  version "6.2.0"
-  resolved "https://artifactory.int.intility.no:443/artifactory/api/npm/npm/@fortawesome/pro-duotone-svg-icons/-/6.2.0/pro-duotone-svg-icons-6.2.0.tgz#fab2b0c8b83a64036845bca07f3943f3df6165e6"
-  integrity sha512-cphSgDxTr+o7qhq6AW8RrBbVfIvIqA6c/Fcbx5WgculmER+Hv6cnuliw4CrZ6KhxsfRWQRLMiYLxgTctqlpB5g==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.2.0"
-
-"@fortawesome/pro-light-svg-icons@^6.2.0":
-  version "6.2.0"
-  resolved "https://artifactory.int.intility.no:443/artifactory/api/npm/npm/@fortawesome/pro-light-svg-icons/-/6.2.0/pro-light-svg-icons-6.2.0.tgz#1c9d8d244103d09e0ecd0925c17a7eebf417d372"
-  integrity sha512-eeVnICxaKXuRVDhunjEEIACkqYA9JlD7vOWq8uJGxCY2SYd5iXqBKPql/Nu+ztOWrUBPFlV5C8O8TOrgkzTN5w==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.2.0"
-
-"@fortawesome/pro-regular-svg-icons@^6.2.0":
-  version "6.2.0"
-  resolved "https://artifactory.int.intility.no:443/artifactory/api/npm/npm/@fortawesome/pro-regular-svg-icons/-/6.2.0/pro-regular-svg-icons-6.2.0.tgz#4a7b48fa35a1b08c5d48fcc0b8f956a7b66a96a4"
-  integrity sha512-1DKWVpAgEBfUCzcgnldnkxuVGKqH57dbrNwEfdb/AsNPDUf1dAZXNjZTCvPHNOMpztcPjYzWsQNi4oZoj8EAQA==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.2.0"
-
-"@fortawesome/pro-solid-svg-icons@^6.2.0":
-  version "6.2.0"
-  resolved "https://artifactory.int.intility.no:443/artifactory/api/npm/npm/@fortawesome/pro-solid-svg-icons/-/6.2.0/pro-solid-svg-icons-6.2.0.tgz#ba7e1d85b75576306c456a9193e2799b64dd704c"
-  integrity sha512-zYlZE6FPsIT2o70U88oMai8C4x/CZvvz5AJ2MVJjac1PtGYyKVdt83TuLq6cEAx7ku3O/JiHWPrYRNtV6c1Zyg==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.2.0"
-
-"@fortawesome/react-fontawesome@^0.2.0":
-  version "0.2.0"
-  resolved "https://artifactory.int.intility.no:443/artifactory/api/npm/npm/@fortawesome/react-fontawesome/-/0.2.0/react-fontawesome-0.2.0.tgz#d90dd8a9211830b4e3c08e94b63a0ba7291ddcf4"
-  integrity sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw==
-  dependencies:
-    prop-types "^15.8.1"
-
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"

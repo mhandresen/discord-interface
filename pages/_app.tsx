@@ -1,9 +1,8 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import { SessionProvider } from 'next-auth/react';
-import Layout from '../components/Layout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeContextProvider } from '../utils/themeContext';
+import { SessionProvider } from 'next-auth/react';
+import type { AppProps } from 'next/app';
+import Layout from '../components/Layout';
+import '../styles/globals.css';
 function MyApp({ Component, pageProps }: AppProps) {
 	const queryClient = new QueryClient();
 
@@ -11,13 +10,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			{/*@ts-ignore */}
 			<SessionProvider session={pageProps.session}>
-				<ThemeContextProvider>
-					<QueryClientProvider client={queryClient}>
-						<Layout>
-							<Component {...pageProps} />, document.getElementbyId('root')
-						</Layout>
-					</QueryClientProvider>
-				</ThemeContextProvider>
+				{/* <ThemeContextProvider> */}
+				<QueryClientProvider client={queryClient}>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
+				</QueryClientProvider>
+				{/* </ThemeContextProvider> */}
 			</SessionProvider>
 		</>
 	);

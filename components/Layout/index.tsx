@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
+import Button from '../Button';
 import NavBar from '../NavBar';
 type Props = {
 	children: ReactNode;
@@ -35,7 +36,7 @@ function LoginView() {
 				/>
 			</div>
 
-			<div className="flex m-20 rounded overflow-hidden">
+			<div className="flex m-20 rounded-2xl overflow-hidden">
 				<div className="relative w-[350px] hidden sm:block bg-bfc-base-3">
 					<Image
 						src="/img/discord.jpg"
@@ -54,13 +55,16 @@ function LoginView() {
 						/>
 					</div>
 					<div className="px-10">
-						<h1 className="text-[22px] mb-0">Welcome to Chateau Interface</h1>
-						<p className="mt-4 mb-6 text-sm leading-5">
+						<h1 className="text-[22px] text-gray-200 mb-0">
+							Welcome to Chateau Interface
+						</h1>
+						<p className="mt-4 mb-6 text-sm text-gray-200 leading-5">
 							Chateau interface is used to manage/interact with the Chateau bot
 							directly through a web interface
 						</p>
-						<span className="font-semibold">Sign in</span>
-						<button
+						{/* <span className="font-semibold text-white">Sign in:</span> */}
+						<Button
+							filled
 							className="flex w-max items-center justify-center mt-4"
 							onClick={() => signIn('discord')}
 						>
@@ -70,8 +74,8 @@ function LoginView() {
 								width={12}
 								className="mr-8"
 							/>
-							<span className="ml-2">Discord</span>
-						</button>
+							<span className="ml-2">Sign in</span>
+						</Button>
 					</div>
 				</div>
 			</div>
@@ -85,7 +89,7 @@ export default function Layout({ children }: Props) {
 	if (!session) return <LoginView />;
 
 	return (
-		<div>
+		<div className="bg-gray-800 overflow-x-hidden">
 			<NavBar children={children} links={LINKS} />
 			{/* <Nav
 				appName="Chateau Interface"
@@ -113,9 +117,10 @@ export default function Layout({ children }: Props) {
 						</a>
 					</>
 				}
-			>
-				<main className="max-w-6xl mx-auto px-3 py-3 md:py-20">{children}</main>
-			</Nav> */}
+			> */}
+			{/* <main className="max-w-6xl mx-auto px-3 py-3 md:py-20 ">{children}</main> */}
+			<main>{children}</main>
+			{/* </Nav> */}
 		</div>
 	);
 }
