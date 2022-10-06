@@ -93,7 +93,6 @@ export default function Layout({ children }: Props) {
 	return (
 		<div className="bg-gray-800 overflow-x-hidden">
 			<NavBar children={children} links={LINKS} />
-			<main>{children}</main>
 		</div>
 	);
 }
