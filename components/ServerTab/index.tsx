@@ -1,79 +1,61 @@
-import Link from 'next/link';
-import React from 'react';
-import { Server } from '../../interface/server';
+import Link from "next/link"
+import React from "react"
+import { Server } from "../../interface/server"
 import Image from "next/image"
 
 type Props = {
-	server: Server;
-};
-
-function getServerInitials(serverName: string):string {
-	const serverNameArray = serverName.split(" ")
-	const serverInitials = serverNameArray.map((word) => word.charAt(0))
-	return serverInitials.join("")
+  server: Server
 }
 
-export default  function ServerTab({ server }: Props) {
+function getServerInitials(serverName: string): string {
+  let serverNameArray = serverName.split(" ")
+  serverNameArray.forEach((word) => {
+    if (word.includes("-")) {
+      serverNameArray.push("-")
+    }
+    return word
+  })
+  console.log("ServerNameArray", serverNameArray)
+  const serverInitials = serverNameArray.map((word) => word.charAt(0))
+  return serverInitials.join("")
+}
 
-	
-	const serverInitials = getServerInitials(server.name)
-	
-	return (
-		<div className="m-4 border border-gray-600 rounded h-[300px] w-[300px] relative">
-				<div className='absolute '>
-				<Image
-						className="blur-xl scale-125 brightness-50 rounded"
-						src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
-						width={300}
-						height={300}
-						alt={serverInitials}
-					/>
-				</div>
-			
-			{/* <div className='fixed h-[300px] w-[300px] -z-1'>
-				<Image
-					className="filter blur-md scale-125"
-					layout='fill'
-					src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
-					width={500}
-					height={500}
-					alt={serverInitials}
-				/>
-			</div>
-			<div className="" >
-				<div className='border-4 rounded-full h-[100px] w-[100px]'>
-					<Image
-						className="rounded-full overflow-hidden"
-						layout='fixed'
-						src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
-						width={100}
-						height={100}
-						alt={serverInitials}
-					/>
-				</div>
-			
-			</div> */}
-			<div className='relative w-[300px] h-[300px] rounded'>
-			<div className='absolute inset-0 text-center top-6'>
-				<Image
-					className="rounded-full text-white m-1/2 border-1 border-red-500"
-					layout='fixed'
-					src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
-					width={100}
-					height={100}
-					alt={serverInitials}
-				/>
-			</div>
-			</div>
-			
-			<div className='absolute inset-x-0 bottom-0 text-center'>
-				<div className='bg-gray-900 relative rounded h-[150px]'>
-					
-				
-					<h1 className=' text-white '>{server.name}</h1>
-					<button className='text-white'>{!server ? 'Configure' : 'Setup'}</button>
-				</div>
-			</div>
-		</div>
-	);
+export default function ServerTab({ server }: Props) {
+  const serverInitials = getServerInitials(server.name)
+
+  return (
+    <div className="m-4 border border-gray-600 rounded-lg h-[300px] w-[300px] relative overflow-hidden">
+      <div className="absolute">
+        <Image
+          className="blur-xl scale-125 brightness-50"
+          src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
+          width={300}
+          height={300}
+          alt={serverInitials}
+        />
+      </div>
+      <div className="relative w-[300px] h-[300px] rounded-lg">
+        <div className="relative h-[100px] w-[100px] rounded-full overflow-hidden border-2 border-white bg-gray-900 mx-auto mt-6 text-center">
+          <Image
+            className=""
+            layout="fill"
+            src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
+            alt=""
+          />
+          <h1 className="font-bold text-white mt-8 text-lg">
+            {serverInitials}
+          </h1>
+        </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 text-center">
+        <div className="bg-gray-900 relative rounded-b-lg h-[150px]">
+          <h1 className=" text-white">{server.name}</h1>
+          <div className="relative text-white">
+            <button>{server ? "Setup" : "Configure"}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
