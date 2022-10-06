@@ -5,7 +5,7 @@ import { ReactNode } from "react"
 import cx from "classnames"
 import { signOut, useSession } from "next-auth/react"
 import LogOutIcon from "../../public/icons/LogOut"
-import GitHubIcon from "../../public/icons/Github"
+import GitHubIcon from "../../public/icons/GitHub"
 
 type Props = {
   children: ReactNode
@@ -18,6 +18,7 @@ type Props = {
 export default function NavBar({ children, links }: Props) {
   const router = useRouter()
   const { data: session } = useSession()
+
   return (
     <>
       <nav className="flex pl-4 border-b border-gray-700 md:shadow-lg items-center fixed w-full top-0 z-10 bg-gray-800">
