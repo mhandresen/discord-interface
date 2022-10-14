@@ -30,6 +30,7 @@ export default function NavBar({ children, links }: Props) {
           {links.map((link) => {
             return (
               <li
+                key={link.path}
                 className={cx(
                   " hover:text-gray-600 border-l border-gray-700 font-bold",
                   router.pathname == link.path ? "text-white " : "text-gray-500"

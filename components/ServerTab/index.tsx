@@ -5,6 +5,7 @@ import Image from "next/image"
 import cx from "classnames"
 import PencilSquare from "../../public/icons/PencilSquare"
 import CogSixToothIcon from "../../public/icons/CogSixTooth"
+import { Guild } from "../../interface/guild"
 
 type Props = {
   server: Server
@@ -18,7 +19,6 @@ function getServerInitials(serverName: string): string {
 
 export default function ServerTab({ server }: Props) {
   const serverInitials = getServerInitials(server.name)
-  console.log("info", server.name, server.icon)
   return (
     <div className="m-4 border border-gray-600 rounded-lg h-[300px] w-[300px] relative overflow-hidden drop-shadow-md">
       <div className="absolute">
@@ -32,15 +32,18 @@ export default function ServerTab({ server }: Props) {
       </div>
       <div className="relative w-[300px] h-[300px] rounded-lg">
         <div className="relative h-[100px] w-[100px] rounded-full overflow-hidden border-2 border-white bg-gray-900 mx-auto mt-6 text-center">
-          {server.icon != null ?  (<Image
-            className=""
-            layout="fill"
-            src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
-            alt=""
-          />) : (
-          <h1 className="font-bold text-white mt-8 text-lg">
-            {serverInitials}
-          </h1>)}
+          {server.icon != null ? (
+            <Image
+              className=""
+              layout="fill"
+              src={`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`}
+              alt=""
+            />
+          ) : (
+            <h1 className="font-bold text-white mt-8 text-lg">
+              {serverInitials}
+            </h1>
+          )}
         </div>
       </div>
 
@@ -52,7 +55,24 @@ export default function ServerTab({ server }: Props) {
             <h1 className="font-extrabold text-gray-600">Role:</h1>
           </div>
           <div className="relative mt-8">
-            <button className={cx(`text-white h-10 w-full flex justify-center items-center`, server.icon == null ? "bg-gray-600" : "bg-blue-600")}>{server.icon != null ? (<><PencilSquare /><h1 className="ml-1">Add to server</h1></>) : (<><CogSixToothIcon /><h1 className="ml-1">Configure</h1></>)}</button>
+            <button
+              className={cx(
+                `text-white h-10 w-full flex justify-center items-center`,
+                server.icon == null ? "bg-gray-600" : "bg-blue-600"
+              )}
+            >
+              {server.icon != null ? (
+                <>
+                  <PencilSquare />
+                  <h1 className="ml-1">Add to server</h1>
+                </>
+              ) : (
+                <>
+                  <CogSixToothIcon />
+                  <h1 className="ml-1">Configure</h1>
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>
