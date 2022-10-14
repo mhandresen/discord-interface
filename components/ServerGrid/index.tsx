@@ -6,14 +6,13 @@ type Props = {
 }
 
 export default function ServerGrid({ servers }: Props) {
-  console.log(servers)
   return (
     <div className="flex justify-between">
       <div
         className={`grid grid-cols-3 ${servers.length == 2 && "grid-cols-2"}`}
       >
         {servers.map((server) => (
-          <ServerTab server={server} />
+          <ServerTab key={server.id} server={server} />
         ))}
       </div>
     </div>
